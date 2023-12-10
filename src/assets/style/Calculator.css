@@ -25,7 +25,8 @@
   display: grid;
   padding: 30px 30px 30px 30px;
   background-color: dimgray;
-  
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .disp{
@@ -42,7 +43,6 @@
 .disp-container{
   overflow-x: hidden;
 }
-
 
 ::-webkit-scrollbar {
   height: 7px;
