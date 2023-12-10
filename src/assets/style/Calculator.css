@@ -39,6 +39,11 @@
   overflow-x: auto;
 }
 
+.disp-container{
+  overflow-x: hidden;
+}
+
+
 ::-webkit-scrollbar {
   height: 7px;
 }
