@@ -13,7 +13,7 @@ const Calculator: React.FC = () => {
 
   const updateDisplay = (currentValue: string): void => {
     if (currentValue === 'Error') setDisplayValue('<span style="color: red;">Error</span>');
-    else if (currentValue === 'Infinity') setDisplayValue('<span style="color: darkred;">Infinity</span>');
+    else if (currentValue === 'Infinity') setDisplayValue('<span style="color: #17a2b8;">Infinity</span>');
     else if (input ==='' && currentValue ==='0') setDisplayValue('<span style="color: grey;">0</span>');
     else setDisplayValue(currentValue);
   };
@@ -78,7 +78,7 @@ const Calculator: React.FC = () => {
   
   const handleDisplayClick = (): void => {
     navigator.clipboard.writeText(displayValue).then(() => {
-      setClipboardMessage(`Value "${displayValue}" copied to clipboard!`);
+      setClipboardMessage(`Value copied to clipboard!`);
       setTimeout(() => setClipboardMessage(null), 2000);
     });
   };
