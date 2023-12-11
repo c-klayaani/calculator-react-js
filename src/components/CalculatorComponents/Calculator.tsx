@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/style/Calculator.css';
 import Button from './Button';
-import { handleEq } from '../utils/calculationsHelper';
+import { handleEq } from '../../utils/calculationsHelper';
 
 const Calculator: React.FC = () => {
   const [input, setInput] = useState<string>('');

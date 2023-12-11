@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/style/Page3.css'
+import '../../assets/style/Page3.css'
 
 const Page3: React.FC = () => {
   return (

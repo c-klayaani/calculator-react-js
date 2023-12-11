@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavigationBar from './components/NavigationBar';
-import Page1 from '../src/components/page1';
-import Page2 from '../src/components/page2';
-import Page3 from '../src/components/page3';
+import Page1 from '../src/components/Pages/page1';
+import Page2 from '../src/components/Pages/page2';
+import Page3 from '../src/components/Pages/page3';
 
 const App: React.FC = () => {
   return (
