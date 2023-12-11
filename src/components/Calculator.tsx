@@ -11,12 +11,15 @@ const Calculator: React.FC = () => {
 
   useEffect(() => updateDisplay(result !== '' ? result : input || '0'), [input, result]);
 
+  //#region 
+  // TODO We shouldn't be injecting Strings as innerHTML, This is React you can inject components
   const updateDisplay = (currentValue: string): void => {
     if (currentValue === 'Error') setDisplayValue('<span style="color: red;">Error</span>');
     else if (currentValue === 'Infinity') setDisplayValue('<span style="color: #17a2b8;">Infinity</span>');
     else if (input ==='' && currentValue ==='0') setDisplayValue('<span style="color: grey;">0</span>');
     else setDisplayValue(currentValue);
   };
+  //#endregion
 
   const handleCalculatorButtonClick = (value: string): void => {
     if(Object.keys(actions).includes(value)) actions[value]()
