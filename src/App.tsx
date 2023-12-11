@@ -1,15 +1,24 @@
-
 import React from 'react';
-import Calculator from './components/Calculator';
-import './assets/style/App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import NavigationBar from './components/NavigationBar';
+import Page1 from '../src/components/page1';
+import Page2 from '../src/components/page2';
+import Page3 from '../src/components/page3';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <Calculator />
-    </div>
+    <Router>
+      <div>
+        <NavigationBar />
+        <Routes>
+          <Route index element ={<Page1/>}/>
+          <Route path="/page1" element={<Page1/>}/>
+          <Route path="/page2" element={<Page2/>}/>
+          <Route path="/page3" element={<Page3/>}/>
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
 export default App;
-
