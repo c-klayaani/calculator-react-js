@@ -1,5 +1,5 @@
 import React from 'react';
-import Calculator from '../CalculatorComponents/Calculator';
+import Calculator from '../CalculatorComponents/layout/Calculator';
 
 const CalculatorPage: React.FC = () => {
     return (
