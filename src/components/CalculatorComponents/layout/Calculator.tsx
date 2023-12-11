@@ -10,9 +10,10 @@ const Calculator: React.FC = () => {
   const [result, setResult] = useState<string>("");
   const [clipboardMessage, setClipboardMessage] = useState<string | null>(null);
   const [color, setColor] = useState<string>("grey");
+  
   useEffect(() => {
     let newColor = "black";
-    if (input === "" && result === "0") newColor = "grey";
+    if (input === "" && result === "") newColor = "grey";
     if (result === "Error") newColor = "red";
     if (result === "Infinity") newColor = "#17a2b8";
     setColor(newColor);
