@@ -85,7 +85,7 @@ export const calculate = (left: string, right: string, operator: string): string
       break;
     case '*': return String(leftValue * rightValue);
       break;
-      case '/': return (rightValue === 0) ? 'Infinity' : (leftValue === 0) ? 'Error' : String(leftValue / rightValue);
+      case '/': return (rightValue === 0) ? 'Infinity' : (leftValue === 0) ? '0' : String(leftValue / rightValue);
       break;
     default: return 'Error';
   }
