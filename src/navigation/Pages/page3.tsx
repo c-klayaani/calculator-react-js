@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
 import '../../assets/style/Page3.css'
-import { useCalculatorContext } from '../CalculatorContext';
+import { useCalculatorDisplay } from '../../hooks/useCalculatorDisplay';
 
 const Page3: React.FC = () => {
-  const {displayContent} = useCalculatorContext();
+  const {displayContent} = useCalculatorDisplay();
 
   return (
     <div className='page-container'>

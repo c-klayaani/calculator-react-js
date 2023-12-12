@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../assets/style/NavigationBar.css';
+import '../../../assets/style/NavigationBar.css';
 
 const NavigationBar: React.FC = () => {
   return (
