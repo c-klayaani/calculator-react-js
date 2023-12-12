@@ -4,12 +4,14 @@ import Button from "../components/Button";
 import { handleEq } from "../../../utils/calculationsHelper";
 import CalculatorScreen from "../components/CalculatorScreen";
 import CalculatorScreenContent from "../components/CalculatorScreenContent";
+import { useCalculatorContext } from '../../CalculatorContext';
 
 const Calculator: React.FC = () => {
   const [input, setInput] = useState<string>("");
   const [result, setResult] = useState<string>("");
   const [clipboardMessage, setClipboardMessage] = useState<string | null>(null);
   const [color, setColor] = useState<string>("grey");
+  const {setDisplayContent} = useCalculatorContext();
   
   useEffect(() => {
     let newColor = "black";
@@ -17,6 +19,7 @@ const Calculator: React.FC = () => {
     if (result === "Error") newColor = "red";
     if (result === "Infinity") newColor = "#17a2b8";
     setColor(newColor);
+    setDisplayContent(result !== '' ? result : input || '0');
   }, [input, result]);
 
   const handleCalculatorButtonClick = (value: string): void => {
