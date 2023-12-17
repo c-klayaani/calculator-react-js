@@ -1,15 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../../assets/style/Page3.css';
-
-interface Country {
-isoCode: string;
-name: {
-  language: string;
-  text: string;
-}[];
-officialLanguages: string[];
-}
+import {Country} from '../../models/Country';
+import Loader from '../../components/CalculatorComponents/components/Loader';
 
 const Page3: React.FC = () => {
 const [loading, setLoading] = useState(true);
@@ -19,7 +12,12 @@ useEffect(() => {
   const fetchData = async () => {
     try {
       const response = await axios.get('https://openholidaysapi.org/Countries');
-      setCountries(response.data);
+      const mappedCountries: Country[] = response.data.map(
+        (country: any) => new Country(country)
+      );
+      setCountries(mappedCountries);
+    } catch (error: any) {
+      console.error(error);
     } finally {
       setLoading(false);
     }
@@ -29,7 +27,7 @@ useEffect(() => {
 
 return (
   <div>
-    {loading ? (<h1 className='loading'>Loading...</h1>) : 
+    {loading ? (<Loader/>): 
     (
       <table>
         <tr>
