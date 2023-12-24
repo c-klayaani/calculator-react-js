@@ -5,7 +5,6 @@
     background-color: black;
     color: #fff;
     height: 50px;
-    margin-bottom: 10px;
     gap: 10px;
     position: sticky;
     top: 0;
@@ -22,4 +21,20 @@
 
 .navigation-bar a:hover {
     background-color: green;
+}
+
+.navigation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.p-sidebar, .p-sidebar-header, .p-sidebar-content  {
+    padding: 0px;
+    background-color: black;
+}
+
+.p-sidebar-top .p-sidebar-enter-done, .p-sidebar-bottom .p-sidebar-enter-done, .p-sidebar-left .p-sidebar-enter-done, .p-sidebar-right .p-sidebar-enter-done {
+    height: 82px;
 }
