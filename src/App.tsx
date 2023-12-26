@@ -5,10 +5,12 @@ import Page1 from "./navigation/Pages/page1";
 import Page2 from "./navigation/Pages/page2";
 import Page3 from "./navigation/Pages/page3";
 import MainLayout from "./navigation/Pages/components/MainLayout";
+import { ThemeProvider } from './context/ThemeContext';
 
 const App: React.FC = () => {
   return (
     <Router>
+      <ThemeProvider>
       <CalculatorProvider>
         <div>
           <Routes>
@@ -21,6 +23,7 @@ const App: React.FC = () => {
           </Routes>
         </div>
       </CalculatorProvider>
+      </ThemeProvider>
     </Router>
   );
 };

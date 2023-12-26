@@ -2,8 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
-    color: #fff;
     height: 50px;
     gap: 10px;
     position: sticky;
@@ -12,11 +10,10 @@
 
 .navigation-bar a {
     text-decoration: none;
-    color: #fff;
     padding: 10px 16px;
     font-size: 20px;
     font-family: "Roboto Mono", monospace;
-    border: 1px solid black;
+    border: 1px solid transparent;
 }
 
 .navigation-bar a:hover {
@@ -30,11 +27,40 @@
     margin-bottom: 10px;
 }
 
-.p-sidebar, .p-sidebar-header, .p-sidebar-content  {
+.p-sidebar, .p-sidebar-header, .p-sidebar-content {
     padding: 0px;
-    background-color: black;
 }
 
 .p-sidebar-top .p-sidebar-enter-done, .p-sidebar-bottom .p-sidebar-enter-done, .p-sidebar-left .p-sidebar-enter-done, .p-sidebar-right .p-sidebar-enter-done {
-    height: 82px;
+    height: 128px;
+}
+
+.mode {
+    color: #6c757d;
+    border: 0 none;
+    border-radius: 20px;
+    background: transparent;
+
+}
+
+.mode:hover {
+    background-color: #fff;
+}
+
+.theme-dark .navigation-bar,
+.theme-dark .navigation-bar a,
+.theme-dark .p-sidebar, 
+.theme-dark .p-sidebar-header,
+.theme-dark .p-sidebar-content {
+    background-color: black;
+    color: white;
+}
+
+.theme-light .navigation-bar,
+.theme-light .navigation-bar a,
+.theme-light .p-sidebar, 
+.theme-light .p-sidebar-header,
+.theme-light .p-sidebar-content {
+    background-color: #fff;
+    color: black;
 }
