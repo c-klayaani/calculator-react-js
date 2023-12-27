@@ -16,6 +16,7 @@ const NavigationBar: React.FC = () => {
           <Link to="/page1">Calculator</Link>
           <Link to="/page2">Page 2</Link>
           <Link to="/page3">Page 3</Link>
+          <Link to="/page4">Login</Link>
         </div>
         <Button className='mode' icon={`pi pi-${isDarkTheme ? 'moon' : 'sun'}`} onClick={toggleTheme} />
       </Sidebar>

@@ -1,0 +1,46 @@
+.login-form {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form {
+    width: 100%;
+}
+
+.input {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-text {
+    width: 100%;
+}
+
+.p-message-error {
+    margin-top: 8px;
+}
+
+.p-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 6px;
+}
+
+.login-signup {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login, .sign-up {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
