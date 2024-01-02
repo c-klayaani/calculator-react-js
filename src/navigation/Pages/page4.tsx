@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
@@ -16,6 +16,10 @@ const Page4: React.FC = () => {
     const [loginError, setLoginError] = useState<string | null>(null);
     const { isValidEmail } = useValidation();
 
+    const showData =() => {
+        <Link to="/page6"></Link>
+    }
+
     const handleLogin = () => {
         setEmailError(null);
         setPasswordError(null);
@@ -25,7 +29,7 @@ const Page4: React.FC = () => {
         else if (email !== "sam@hotmail.com") setEmailError("Your email is not correct");
         if (password === "") setPasswordError("Password is required");
         else if (password !== "123@s") setPasswordError("Your password is not correct");
-        if (!emailError && !passwordError) setLoginError(null);
+        if (!emailError && !passwordError) showData;
       };
 
     return (
