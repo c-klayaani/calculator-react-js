@@ -1,39 +1,65 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { isEmail, isPasswordValid } from "../../utils/validation";
+import { Link, useNavigate } from "react-router-dom";
 import { InputText } from "primereact/inputtext";
-import { Button } from "primereact/button";
-import { Card } from "primereact/card";
+import { Login } from "../../api/reporterApi";
 import { Message } from "primereact/message";
-import { Link } from "react-router-dom";
 import { Tooltip } from "primereact/tooltip";
-import { useValidation } from "../../hooks/useValidation";
+import { Button } from "primereact/button";
+import { Toast } from 'primereact/toast';
+import { Card } from "primereact/card";
 import "../../assets/style/Page4.css";
 
 const Page4: React.FC = () => {
+    const toast = useRef<Toast>(null);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [emailError, setEmailError] = useState<string | null>(null);
     const [passwordError, setPasswordError] = useState<string | null>(null);
-    const [loginError, setLoginError] = useState<string | null>(null);
-    const { isValidEmail } = useValidation();
+    const [loginError] = useState<string | null>(null);
+    const navigate = useNavigate();
 
-    const showData =() => {
-        <Link to="/page6"></Link>
+    const isFormValid = () =>{
+        let isValid = true;
+        if (!isEmail(email)) {
+            isValid = false;
+            setEmailError("This email is not valid.");};
+        if (!isPasswordValid(password)) {
+            setPasswordError("Password should be 8 characters");
+            isValid = false;};
+        if (isValid) {
+            setEmailError(null);
+            setPasswordError(null);
+        }
+        return isValid;
     }
 
-    const handleLogin = () => {
-        setEmailError(null);
-        setPasswordError(null);
-        setLoginError(null);
-        if (email === "") setEmailError("Email is required");
-        else if (!isValidEmail(email)) setEmailError("Invalid email format");
-        else if (email !== "sam@hotmail.com") setEmailError("Your email is not correct");
-        if (password === "") setPasswordError("Password is required");
-        else if (password !== "123@s") setPasswordError("Your password is not correct");
-        if (!emailError && !passwordError) showData;
-      };
+    const showError = () => {
+        toast.current?.show({
+            severity: "error",
+            summary: "Error",
+            detail: "Login failed. Please check your credentials.",
+            life: 3000
+        });
+    };
+    
+
+    useEffect(() => {if (loginError != null) showError();}, [loginError]);
+
+    const login = async () => {
+        try {
+            const response = await Login(email, password);
+            if (!response.error) navigate(pageFourRoute);
+        } catch (error: any) {
+            showError();
+        }
+    }
+
+    const handleLogin = () => isFormValid() && login();
 
     return (
         <div className="login-form">
+            <Toast ref={toast} />
             <Card title="Login" subTitle="Enter your email and password" style={{ width: "300px" }}>
                 <div className="form">
                 <div className="input">
@@ -63,4 +89,5 @@ const Page4: React.FC = () => {
     );
 };
 
+export const pageFourRoute = "/page6";
 export default Page4;

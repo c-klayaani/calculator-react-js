@@ -3,8 +3,8 @@ import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import { Tooltip } from "primereact/tooltip";
-import { useValidation } from "../../hooks/useValidation";
 import "../../assets/style/Page5.css";
+import { isEmail } from "../../utils/validation";
 
 
 const Page5: React.FC = () => {
@@ -16,7 +16,6 @@ const Page5: React.FC = () => {
     const [emailError, setEmailError] = useState<string | null>(null);
     const [passwordError, setPasswordError] = useState<string | null>(null);
     const [confirmPasswordError, setConfirmPasswordError] = useState<string | null>(null);
-    const { isValidEmail } = useValidation();
 
     const handleSignUp = () => {
         setUsernameError(null);
@@ -27,10 +26,10 @@ const Page5: React.FC = () => {
         if (email === "") setEmailError("Email is required");
         if (password === "") setPasswordError("Password is required");
         if (confirmPassword === "") setConfirmPasswordError("Confirm Password is required");
-        if (!isValidEmail(email) && password !== confirmPassword) {
+        if (!isEmail(email) && password !== confirmPassword) {
         setEmailError("Invalid email format");
         setConfirmPasswordError("Passwords do not match");
-        } else if (!isValidEmail(email)) setEmailError("Invalid email format");
+        } else if (!isEmail(email)) setEmailError("Invalid email format");
         else if (password !== confirmPassword) setConfirmPasswordError("Passwords do not match");
         if (usernameError || emailError || passwordError || confirmPasswordError) return;
     };

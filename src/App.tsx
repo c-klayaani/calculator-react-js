@@ -1,11 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { CalculatorProvider } from "./context/CalculatorContext";
-import { ValidationProvider } from "./context/ValidationContext";
 import Page1 from "./navigation/Pages/page1";
 import Page2 from "./navigation/Pages/page2";
 import Page3 from "./navigation/Pages/page3";
-import Page4 from "./navigation/Pages/page4";
+import Page4, { pageFourRoute } from "./navigation/Pages/page4";
 import Page5 from "./navigation/Pages/page5";
 import Page6 from "./navigation/Pages/page6";
 import MainLayout from "./navigation/Pages/components/MainLayout";
@@ -16,7 +15,6 @@ const App: React.FC = () => {
     <Router>
       <ThemeProvider>
       <CalculatorProvider>
-      <ValidationProvider>
         <div>
           <Routes>
             <Route path="/" element={<MainLayout />}>
@@ -26,11 +24,10 @@ const App: React.FC = () => {
               <Route path="/page3" element={<Page3 />} />
               <Route path="/page4" element={<Page4 />} />
               <Route path="/page5" element={<Page5 />} />
-              <Route path="/page6" element={<Page6 />} />
+              <Route path={pageFourRoute} element={<Page6 />} />
             </Route>
           </Routes>
         </div>
-        </ValidationProvider>
       </CalculatorProvider>
       </ThemeProvider>
     </Router>
