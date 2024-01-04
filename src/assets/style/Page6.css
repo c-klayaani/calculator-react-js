@@ -1,1 +1,22 @@
-/* fix the tables width and overflow */
+.loading {
+    left: 0;
+    line-height: 200px;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+}
+
+.user .p-datatable-table,
+.token .p-datatable-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.p-datatable-thead > tr > th,
+.p-datatable-tbody > tr > td {
+  text-align: center;
+  word-wrap: break-word;
+}
+

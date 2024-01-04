@@ -50,7 +50,7 @@ const Page6: React.FC = () => {
                 <h3>Reporter Data</h3>
                 <Accordion>
                   <AccordionTab header="User">
-                    <DataTable value={reporter.data} className="p-datatable-striped">
+                    <DataTable value={reporter.data} className="p-datatable-striped user">
                       <Column field="user.id" header="User ID" />
                       <Column field="user.firstName" header="First Name"/>
                       <Column field="user.lastName" header="Last Name"/>
@@ -63,7 +63,7 @@ const Page6: React.FC = () => {
                     </DataTable>
                   </AccordionTab>
                   <AccordionTab header="Tokens">
-                    <DataTable value={reporter.data} className="p-datatable-striped">
+                    <DataTable value={reporter.data} className="p-datatable-striped token">
                       <Column field="JWTToken" header="JWT Token"/>
                       <Column field="JWTRefreshToken" header="JWT Refresh Token"/>
                     </DataTable>
@@ -74,7 +74,7 @@ const Page6: React.FC = () => {
               <div>
                 <h3>Reporter Data</h3>
                 <Accordion>
-                  <AccordionTab header="Data">
+                  <AccordionTab header="User">
                     <p>No data available.</p>
                   </AccordionTab>
                   <AccordionTab header="Tokens">
