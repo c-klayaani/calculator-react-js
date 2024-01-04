@@ -14,9 +14,12 @@
   table-layout: fixed;
 }
 
-.p-datatable-thead > tr > th,
-.p-datatable-tbody > tr > td {
-  text-align: center;
-  word-wrap: break-word;
+.p-column-header-content{
+    justify-content: center;
 }
 
+.p-datatable-tbody tr td,
+.p-column-title {
+    text-align: center;
+    word-wrap: break-word;
+}
